@@ -26,7 +26,6 @@ const Businessedit = () => {
         try {
             const response = await api.get(`/businessview/${business_id}`)
             setbusinessdata(response.data[0])
-            // console.log(response.data)
         }
         catch (error) {
             console.log(error)

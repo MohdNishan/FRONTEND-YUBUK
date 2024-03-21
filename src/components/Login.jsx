@@ -23,10 +23,6 @@ const Login = () => {
             console.error({ message: 'Error:', error_message: error });
         }
     };
-    // const onLoginClick = (e) => {
-    //     apiCalendar.handleAuthClick().then(() => {
-    //         console.log('User signed in');})
-    //    };
 
     return (
         <div>
@@ -43,7 +39,6 @@ const Login = () => {
                 <br />
                 <button type="submit">Generate OTP</button>
             </form>
-                {/* <button onClick={onLoginClick}>Sign In</button> */}
             {otpSent && <p>OTP Sent successfully</p>}
         </div>
     );

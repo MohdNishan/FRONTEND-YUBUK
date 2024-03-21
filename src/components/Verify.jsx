@@ -17,7 +17,7 @@ const Verify = () => {
                 mobilenumber: no
             });
             const { token } = response.data
-            localStorage.setItem('token', token)
+            localStorage.setItem('jwt_token', token)
  
             setInvalidOTP(false);
             console.log(response)
