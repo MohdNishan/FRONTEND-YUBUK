@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import './App.css'
+// import './App.css'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./components/Login";
 import Verify from "./components/Verify";
@@ -18,6 +17,7 @@ import Businesslist from "./components/Business/List";
   
 
   return (
+    
     <Router>
       <Routes>
         <Route path="/" exact Component={Login}/>

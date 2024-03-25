@@ -49,9 +49,9 @@ const Userprofileview = () => {
                     <p>Date of Birth : {profileData.Date_of_Birth}</p>
                 </div>
             )}
-            {profileData && <button onClick={handleEdit}>Edit Profile</button>}
-            {!profileData && <button onClick={handleCreate}>Create Profile</button>}
-            {profileData && <button onClick={handlebusiness}>View My Business</button>}
+            {profileData && <button onClick={handleEdit} className="bg-purple-800 px-4 py-2 text-white hover:bg-sky-800 sm:px-5 sm:py-1 rounded-md mt-2">Edit Profile</button>}
+            {!profileData && <button onClick={handleCreate} className="bg-purple-800 px-4 py-2 text-white hover:bg-sky-800 sm:px-5 sm:py-1 rounded-md mt-2">Create Profile</button>}
+            {profileData && <button onClick={handlebusiness} className="bg-purple-800 px-4 py-2 text-white hover:bg-sky-800 sm:px-5 sm:py-1 rounded-md mt-2 ml-1">View My Business</button>}
         </div>
     );
 };

@@ -9,8 +9,25 @@ const Verify = () => {
     const [invalidOTP, setInvalidOTP] = useState(false);
     const navigate = useNavigate();
 
-    const handlesubmit = async (v) => {
-        v.preventDefault();
+
+
+    const handleresendotp = async (resend) => {
+        resend.preventDefault();
+        try {
+            const response = await api.post('/login',{
+                mobilenumber: no
+            });
+            const { token } = response.data
+            localStorage.setItem('jwt_token', token)
+        } catch(error){
+            console.error({message :'Error', error_message : error});
+
+        }   
+    }
+
+
+    const handlesubmit = async (verify) => {
+        verify.preventDefault();
         try {
             const response = await api.post('/verify',{
                 otp: OTP,
@@ -30,20 +47,24 @@ const Verify = () => {
     };
 
   return (
-    <div>
-        <h1>
-            Verify
+    <div className='text-center border h-screen flex flex-col justify-center items-center'>
+        <h1 className='font-sans font-bold text-2xl'>
+            OTP Verification
         </h1>
-        <p> <i>Enter the otp sent "{no}"</i> </p>
+        <p className='font-sans font-semibold text-lg mt-3'> <i>Enter the otp sent "{no}"</i> </p>
         <form onSubmit={handlesubmit}>
             <input 
                 type='text'
                 placeholder='Enter your OTP'
                 value={OTP}
                 onChange={(v) => setotp (v.target.value)}
+                className=' border border-black rounded-sm font-semibold mt-5 h-8 px-2'
             />
             <br/>
-            <button>Verify OTP</button>
+            <p className='font-semibold'>Didn't receive the OTP? <button onClick={handleresendotp} 
+                className='underline text-red-600 mt-4 font-semibold'>Resed OTP</button></p>
+            <br/>
+            <button className='bg-purple-800 h-9 w-56 text-white font-semibold'>Verify and Proceed</button>
             {invalidOTP && <p style={{ color: 'red' }}>Invalid OTP</p>}
         </form>
     </div>
