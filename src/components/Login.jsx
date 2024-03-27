@@ -28,7 +28,7 @@ const Login = () => {
         <div className='text-center border h-screen flex flex-col justify-center items-center'>
             <h1 className=' text-3xl font-mono font-semibold'>Login Page</h1>
             <form onSubmit={handleSubmit}>
-                <input
+                <input 
                     type="text"
                     value={mobile_number}
                     onChange={(e) => setMobileNumber(e.target.value)}

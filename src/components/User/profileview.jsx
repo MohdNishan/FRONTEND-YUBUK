@@ -37,8 +37,8 @@ const Userprofileview = () => {
 
     return (
         <div>
-            <h1>User Profile</h1>
-            {error && <p>{error}</p>}
+            <h1 className='text-2xl font-bold font-serif'>My Account</h1>
+            {/* {error && <p>{error}</p>} */}
             {!profileData && <p>User Not found</p>}
             {profileData && ( 
                 <div>
@@ -47,6 +47,7 @@ const Userprofileview = () => {
                     <p>Mobile Number : {profileData.Mobile_Number}</p>
                     <p>Address : {profileData.Address}</p>
                     <p>Date of Birth : {profileData.Date_of_Birth}</p>
+                    {/* {!profileData.DP && <img src={profileData.DP} alt='DP'/>} */}
                 </div>
             )}
             {profileData && <button onClick={handleEdit} className="bg-purple-800 px-4 py-2 text-white hover:bg-sky-800 sm:px-5 sm:py-1 rounded-md mt-2">Edit Profile</button>}

@@ -57,68 +57,82 @@ const Businessedit = () => {
 
 
   return (
-    <div>
-        <h1>
+    <div className='w-80 '>
+        <h1 className='font-serif text-black text-2xl font-semibold'>
             Business Edit
         </h1>
         <form onSubmit={handleSubmit}>
-            <label>Business Name : </label>
-            <input 
-                type='text'
-                name='Business_Name'
-                value={businessdata.Business_Name || ''}
-                onChange={handleChange}
-            />
-            <br/>
-            <label>Email : </label>
-            <input 
-                type='email'
-                name='Email'
-                value={businessdata.Email || ''}
-                onChange={handleChange}
-            />
-            <br/>
-            <label>Website : </label>
-            <input
-                type='text'
-                name='Website'
-                value={businessdata.Website || ''}
-                onChange={handleChange}
-            />
-            <br/>
-            <label>Opening hours : </label>
-            <input
-                type='text'
-                name='Opening_hours'
-                value={businessdata.Opening_hours || ''}
-                onChange={handleChange}
-            />
-            <br/>
-            <label>Location : </label>
-            <input
-                type='text'
-                name='Location'
-                value={businessdata.Location || ''}
-                onChange={handleChange}
-            />
-            <br/>
-            <label>Image : </label>
-            <input
-                type='Image'
-                name='Image'
-                value={businessdata.Image || ''}
-                onChange={handleChange}
-            />
-            <br/>
-            <label>Contact number : </label>
-            <input
-                type='text'
-                name='Contact_number'
-                defaultValue={businessdata.Contact_Number || ''}
-                onChange={handleChange}
-            />
-            <br/>
-            <button>Submit</button>
+            <div className='flex justify-between'>
+                <label>Business Name : </label>
+                <input 
+                    type='text'
+                    name='Business_Name'
+                    value={businessdata.Business_Name || ''}
+                    onChange={handleChange}
+                    className='border-2 border-gray-500 mt-1 rounded-sm'
+                />
+            </div>
+            <div className='flex justify-between'>
+                <label>Email : </label>
+                <input 
+                    type='email'
+                    name='Email'
+                    value={businessdata.Email || ''}
+                    onChange={handleChange}
+                    className='border-2 border-gray-500 mt-1 rounded-sm'
+                />
+            </div>
+            <div className='flex justify-between'>
+                <label>Website : </label>
+                <input
+                    type='text'
+                    name='Website'
+                    value={businessdata.Website || ''}
+                    onChange={handleChange}
+                    className='border-2 border-gray-500 mt-1 rounded-sm'
+                />
+            </div>
+            <div className='flex justify-between'>
+                <label>Opening hours : </label>
+                <input
+                    type='text'
+                    name='Opening_hours'
+                    value={businessdata.Opening_hours || ''}
+                    onChange={handleChange}
+                    className='border-2 border-gray-500 mt-1 rounded-sm'
+                />
+            </div>
+            <div className='flex justify-between'>
+                <label>Location : </label>
+                <input
+                    type='text'
+                    name='Location'
+                    value={businessdata.Location || ''}
+                    onChange={handleChange}
+                    className='border-2 border-gray-500 mt-1 rounded-sm'
+                />
+            </div>
+            <div className='flex justify-between'>
+                <label>Image : </label>
+                <input
+                    type='Image'
+                    name='Image'
+                    value={businessdata.Image || ''}
+                    onChange={handleChange}
+                    className='border-2 border-gray-500 mt-1 rounded-sm'
+                />
+            </div>
+            <div className='flex justify-between'>   
+                <label>Contact number : </label>
+                <input
+                    type='text'
+                    name='Contact_number'
+                    defaultValue={businessdata.Contact_Number || ''}
+                    onChange={handleChange}
+                    className='border-2 border-gray-500 rounded-sm'
+                />
+            </div>
+            <button className='bg-purple-800 rounded-md text-white h-7 w-20 mt-1'>Submit</button>
         </form>
         {updatesuccess && <p style={{ color: 'green', fontStyle: 'italic' }}>Update Successfull</p>}
         {updatefail && <p style={{ color: 'red', fontStyle: 'italic' }}>Update Failed</p>}

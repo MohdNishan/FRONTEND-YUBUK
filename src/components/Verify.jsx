@@ -51,10 +51,10 @@ const Verify = () => {
         <h1 className='font-sans font-bold text-2xl'>
             OTP Verification
         </h1>
-        <p className='font-sans font-semibold text-lg mt-3'> <i>Enter the otp sent "{no}"</i> </p>
+        <p className='font-sans font-semibold text-lg mt-3 italic'>Enter the otp sent to "{no}"</p>
         <form onSubmit={handlesubmit}>
             <input 
-                type='text'
+                type='text' 
                 placeholder='Enter your OTP'
                 value={OTP}
                 onChange={(v) => setotp (v.target.value)}
@@ -65,7 +65,7 @@ const Verify = () => {
                 className='underline text-red-600 mt-4 font-semibold'>Resed OTP</button></p>
             <br/>
             <button className='bg-purple-800 h-9 w-56 text-white font-semibold'>Verify and Proceed</button>
-            {invalidOTP && <p style={{ color: 'red' }}>Invalid OTP</p>}
+            {invalidOTP && <p className='text-red-700'>"Invalid OTP"</p>}
         </form>
     </div>
   ) 

@@ -50,43 +50,50 @@ const Userprofileedit = () => {
 
 
   return (
-    <div>
-        <h1>Edit page</h1>
+    <div className='w-72'>
+        <h1 className='text-2xl font-bold font-serif'>Edit page</h1>
         <form onSubmit={handleSubmit}>
-        
-        <label>Name : </label>
+            <div className='flex justify-between'>
+                <label>Name : </label>
                 <input
                     type="text" 
                     name='Name'
                     value={userdata.Name || ''}
                     onChange={handleChange}
+                    className='border-2 border-gray-400 rounded-sm'
                 />
-                <br />
+            </div>
+            <div className='flex justify-between'>
                 <label>Email : </label>
                 <input
                     type="email"
                     name='Email'
                     value={userdata.Email || ''}
                     onChange={handleChange}
+                    className='border-2 border-gray-400 rounded-sm mt-1'
                 />
-                <br />
+            </div>
+            <div className='flex justify-between'>
                 <label>Address : </label>
                 <input
                     type="address"
                     name='Address'
                     value={userdata.Address || ''}
                     onChange={handleChange}
+                    className='border-2 border-gray-400 rounded-sm mt-1'
                 />
-                <br/>
+            </div>
+            <div className='flex justify-between'>
                 <label>Date of Birth : </label>
                 <input
                     type="text"
                     name='Date_of_Birth'
                     value={userdata.Date_of_Birth || ''}
                     onChange={handleChange}
+                    className='border-2 border-gray-400 rounded-sm mt-1'
                 />
-                <br />
-                <button type="submit">Submit</button>
+            </div>
+                <button type="submit" className='bg-purple-800 rounded-md text-white h-7 w-20'>Submit</button>
             </form>
             {updatesuccess && <p style={{ color:'green' }}>Profile Updated Successfully</p>}
         </div>

@@ -108,9 +108,9 @@ function gisLoaded() {
   }
   return (
     <div>
-      <button id="authorize_button" hidden={googletoken && expiresIn} onClick={handleAuthClick}>Add to Calendar</button>
-      <button id="signout_button" hidden={!googletoken && !expiresIn}   onClick={handleAuthClick}>Switch Account</button>
-      <button id='add_manual_event' hidden={!googletoken && !expiresIn} onClick={addManualEvent}>Add Event</button>
+      <button id="authorize_button" hidden={googletoken && expiresIn} onClick={handleAuthClick} className='bg-purple-800 h-8 w-36 text-white rounded-md hover:bg-sky-800 mt-1'>Add to Calendar</button>
+      <button id="signout_button" hidden={!googletoken && !expiresIn}   onClick={handleAuthClick} className='bg-purple-800 h-8 w-36 text-white rounded-md hover:bg-sky-800 mt-1'>Switch Account</button>
+      <button id='add_manual_event' hidden={!googletoken && !expiresIn} onClick={addManualEvent} className='bg-purple-800 h-8 w-36 text-white rounded-md hover:bg-sky-800 mt-1 ml-1'>Add Event</button>
       {/* <pre id="content" style={{ whiteSpace: 'pre-wrap' }}></pre> */}
     </div>
   )

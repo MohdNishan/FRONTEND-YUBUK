@@ -31,17 +31,16 @@ const BusinessList = () => {
 
   return (  
     <div>
-      <h2>Businesses</h2>
+      <h1 className='font-serif font-bold text-2xl'>Businesses</h1>
       {businesses.length === 0 && <p>No Business Found</p>}
-      <ul>
+      <ul className='list-disc'>
         {businesses.map((business,i) => (
-          <li key={i} onClick={()=>navigate(`/business/view/${business.id} `)}>
+          <li className='hover:text-orange-700 w-28' key={i} onClick={()=>navigate(`/business/view/${business.id} `)}>
             {business.Business_Name}
-          </li>
+          </li> 
         ))}
       </ul>
-      <button onClick={handlebusiness}>Add Business</button>
-      <br/>
+      <button onClick={handlebusiness} className='bg-purple-800 h-8 w-36 text-white rounded-md hover:bg-sky-800 mt-1'>Add Business</button>
       <br/>
       <LoginSignout/>
     </div>

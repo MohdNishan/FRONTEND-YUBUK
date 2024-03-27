@@ -36,66 +36,84 @@ const Businessprofile = () => {
         }
     }
 
+    const handleImageChange = (event) => {
+        const file = event.target.files[0]
+        setImage(file)
+    }
 
   return (
-    <div>
-        <h1>
+    <div className='w-80'>
+        <h1 className='text-2xl font-serif font-bold'>
             Create Business
         </h1>
         <form onSubmit={handleSubmit}>
+            <div className='flex justify-between'>
             <label>Business Name : </label>
             <input 
                 type='text'
                 value={Business_Name}
                 onChange={(event) => setBusinessName(event.target.value) }
+                className='border-2 border-gray-500 mt-1 rounded-sm'
             />
-            <br/>
+            </div>
+            <div className='flex justify-between'>
             <label>Email : </label>
             <input 
                 type='email'
                 value={Email}
-                onChange={(event) => setemail(event.target.value) }
+                onChange={(event) => setemail(event.target.value)}
+                className='border-2 border-gray-500 mt-1 rounded-sm'
             /> 
-            <br/>
+            </div>
+            <div className='flex justify-between'>
             <label>Website : </label>
             <input 
                 type='text'
                 value={Website}
                 onChange={(event) => setWebsite(event.target.value)}
+                className='border-2 border-gray-500 mt-1 rounded-sm'
             />
-            <br/>
+            </div>
+            <div className='flex justify-between'>
             <label>Operating Hours : </label>
             <input 
                 type='text'
                 value={Opening_hours}
                 onChange={(event) => setOpeninghours(event.target.value)}
+                className='border-2 border-gray-500 mt-1 rounded-sm'
             />
-            <br/>
+            </div>
+            <div className='flex justify-between'>
             <label>Location : </label>
             <input 
                 type='text'
                 value={Location}
                 onChange={(event) => setLocation(event.target.value)}
+                className='border-2 border-gray-500 mt-1 rounded-sm'
             />
-            <br/>
+            </div>
+            <div className='flex justify-between'>
             <label>Image : </label>
             <input 
-                type='image'
-                value={Image}
-                onChange={(event) => setImage(event.target.value)}
+                type='file'
+                accept='image/*'
+                onChange={handleImageChange}
+                className='w-52 mt-1'
             />
-            <br/>
+            </div>
+            <div className='flex justify-between'>
             <label>Contact Number : </label>
             <input 
                 type='text'
                 value={Contact_Number}
                 onChange={(event) => setContactnumber(event.target.value)}
+                className='border-2 border-gray-500 rounded-sm mt-1'
             />
-            <br/>
-            <button>Submit</button>
+            </div>
+            <button className='bg-purple-800 rounded-md text-white h-7 w-20 mt-1'>Submit</button>
         </form>
-        {created && <p style={{ color: 'green', fontStyle: 'italic' }}>{created}</p>}
-        {exist && <p style={{ color: 'red', fontStyle: 'italic' }}>{exist}</p>}
+        {created && <p className='text-green-800 italic'>{created}</p>}
+        {exist && <p className='text-red-700 italic'>{exist}</p>}
 
     </div>
     )

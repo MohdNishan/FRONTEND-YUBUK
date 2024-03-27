@@ -49,7 +49,7 @@ const Profileview = () => {
 
   return (
     <div>
-        <h1>
+        <h1 className='text-2xl font-serif font-bold'>
             Business Profile
         </h1>
         {businessdata && (
@@ -63,9 +63,9 @@ const Profileview = () => {
             <p>Contact_number : {businessdata.Contact_Number}</p>
         </div>
         )}
-        {businessdata && <button onClick={handleEdit}>Edit Business</button>}
+        {businessdata && <button onClick={handleEdit} className='bg-purple-800 rounded-md text-white h-7 w-28'>Edit Business</button>}
 
-        <button onClick={handleDelete}>Delete Business</button>
+        <button onClick={handleDelete} className='bg-purple-800 rounded-md text-white h-7 w-36 ml-1'>Delete Business</button>
     </div>
   )
 }
