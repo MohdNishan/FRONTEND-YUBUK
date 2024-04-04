@@ -84,7 +84,7 @@ const UserProfile = () => {
                     type="file"
                     accept='image/*'
                     onChange={handleImageChange}
-                    className='border-2 border-gray-400 rounded-sm mt-1'
+                    className='w-52 mt-1'
                 />
                 </div>
                 <div className='flex justify-between'>

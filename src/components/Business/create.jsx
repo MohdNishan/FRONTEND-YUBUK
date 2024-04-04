@@ -107,14 +107,13 @@ const Businessprofile = () => {
                 type='text'
                 value={Contact_Number}
                 onChange={(event) => setContactnumber(event.target.value)}
-                className='border-2 border-gray-500 rounded-sm mt-1'
+                className='border-2 border-gray-50 rounded-sm mt-1'
             />
             </div>
             <button className='bg-purple-800 rounded-md text-white h-7 w-20 mt-1'>Submit</button>
         </form>
         {created && <p className='text-green-800 italic'>{created}</p>}
         {exist && <p className='text-red-700 italic'>{exist}</p>}
-
     </div>
     )
 }

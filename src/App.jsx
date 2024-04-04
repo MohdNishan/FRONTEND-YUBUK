@@ -10,6 +10,8 @@ import Businessedit from "./components/Business/edit";
 import { injectAuthInterceptors } from "./api";
 import profileview from "./components/Business/businessview";
 import Businesslist from "./components/Business/List";
+import Landingpage from "./components/landing page";
+import UserBusinessView from "./components/User/userbusinessview";
   
   const App = () => {
 
@@ -20,11 +22,13 @@ import Businesslist from "./components/Business/List";
     
     <Router>
       <Routes>
-        <Route path="/" exact Component={Login}/>
+        <Route path="/" exact Component={Landingpage}/>
+        <Route path="/login" exact Component={Login}/>
         <Route path="/verify" Component={Verify}/>
         <Route path="/user/create" Component={UserProfile}/>
         <Route path="/user/edit" Component={Userprofileedit}/>
         <Route path="/user/view" Component={Userprofileview}/>
+        <Route path="/user/business/view" Component={UserBusinessView}/>
         <Route path="/business/create/:profile_id" Component={Businessprofile}/>
         <Route path="/business/edit/:business_id" Component={Businessedit}/>
         <Route path="/business/view/:business_id" Component={profileview}/>
