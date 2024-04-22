@@ -90,11 +90,11 @@ function gisLoaded() {
       'location': 'cusat School, kochi',
       'description': 'Paty time',
       'start': {
-        'dateTime': '2024-03-21T04:04:00.000Z',
+        'dateTime': '2024-04-21T04:04:00.000Z',
         'timeZone': 'UTC'
       },
       'end': {
-        'dateTime': '2024-03-22T04:35:00.000Z',
+        'dateTime': '2024-04-22T04:35:00.000Z',
         'timeZone': 'UTC'
       },
     }

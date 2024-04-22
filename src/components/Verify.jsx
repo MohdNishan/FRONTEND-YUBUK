@@ -47,11 +47,9 @@ const Verify = () => {
     };
 
   return (
-    <div className='text-center border h-screen flex flex-col justify-center items-center'>
-        <h1 className='font-sans font-bold text-2xl'>
-            OTP Verification
-        </h1>
-        <p className='font-sans font-semibold text-lg mt-3 italic'>Enter the otp sent to "{no}"</p>
+    <div className='mt-32 ml-32'>
+        <img src='/Images/otp.png' alt='' className='h-32 ml-5' />
+        <p className='font-serif text-lg mt-3 ml-5'>Enter the otp sent to <br></br> "+91-{no}"</p>
         <form onSubmit={handlesubmit}>
             <input 
                 type='text' 
@@ -61,14 +59,14 @@ const Verify = () => {
                 className=' border border-black rounded-sm font-semibold mt-5 h-8 px-2'
             />
             <br/>
-            <p className='font-semibold'>Didn't receive the OTP? <button onClick={handleresendotp} 
-                className='underline text-red-600 mt-4 font-semibold'>Resed OTP</button></p>
+            <p className='font-normal -ml-3'>Didn't receive the OTP? <button onClick={handleresendotp} 
+                className='underline mt-4 font-normal'>Resed OTP</button></p>
             <br/>
-            <button className='bg-purple-800 h-9 w-56 text-white font-semibold'>Verify and Proceed</button>
+            <button className='bg-sky-500 h-7 w-48 text-white  rounded-md ml-3'>Verify and Proceed</button>
             {invalidOTP && <p className='text-red-700'>"Invalid OTP"</p>}
         </form>
     </div>
-  ) 
+  )
 }
 
 export default Verify;

@@ -12,11 +12,11 @@ import profileview from "./components/Business/businessview";
 import Businesslist from "./components/Business/List";
 import Landingpage from "./components/landing page";
 import UserBusinessView from "./components/User/userbusinessview";
+import SlotSelection from "./components/User/slotselection";
   
   const App = () => {
 
-    injectAuthInterceptors()
-  
+    injectAuthInterceptors()   
 
   return (
     
@@ -33,6 +33,7 @@ import UserBusinessView from "./components/User/userbusinessview";
         <Route path="/business/edit/:business_id" Component={Businessedit}/>
         <Route path="/business/view/:business_id" Component={profileview}/>
         <Route path="/business/list/:profile_id" Component={Businesslist}/>
+        <Route path="/selection" Component={SlotSelection}/>
       </Routes>
     </Router>
 
