@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { HiOutlineArrowSmRight } from "react-icons/hi";
 
 const Landingpage = () => {
     const navigate = useNavigate();
@@ -20,11 +21,11 @@ const Landingpage = () => {
             <p className='mt-5 ml-9 font-serif leading-7'>
             Welcome to YUBUK - your gateway to a seamless booking experience across a <br></br> diverse range of businesses! Explore our intuitive platform designed to streamline <br></br> your reservation process for various services and appointments.
             </p>
-            <div className='flex'>
-            <button onClick={toLogin} className='bg-black font-serif text-white w-40 ml-9 mt-9 h-9 rounded-2xl'>
+            <div>
+            <button onClick={toLogin} className='bg-black font-serif text-white w-40 ml-9 mt-9 h-9 rounded-2xl flex justify-evenly items-center'>
                 Get Stared
-                <div className='bg-white '>
-
+                <div className='bg-white size-7 rounded-full ml-5'>
+                <HiOutlineArrowSmRight className='text-black text-2xl ml-0.5 mt-0.5' />
                 </div>
             </button>
             </div>
