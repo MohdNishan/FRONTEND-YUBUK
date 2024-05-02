@@ -5,13 +5,29 @@ import { useNavigate, useParams } from 'react-router-dom';
 const Profileview = () => {
     const [businessdata, setbusinessdata] = useState();
     const { business_id } = useParams();
+    const [profileData, setProfileData] = useState('')
     const navigate = useNavigate();
 
     useEffect(() => {
         fetchUserProfile()
     },[])
 
+    useEffect(() => {
+        fetchbusinessprofile()
+    },[])
+
     const fetchUserProfile = async () => {
+        try{
+            const response = await api.get(`/authme`)
+            if(!response.data.message){
+                setProfileData(response.data[0])
+            }
+        } catch (error)   {
+           setError(error.message)
+        }
+    }
+
+    const fetchbusinessprofile = async () => {
         try {
             const response = await api.get(`/businessview/${business_id}`);  
             if(!response.data.message){
@@ -48,24 +64,66 @@ const Profileview = () => {
 
 
   return (
-    <div>
-        <h1 className='text-2xl font-serif font-bold'>
-            Business Profile
-        </h1>
-        {businessdata && (
+    <div className='bg-rose-50 w-full h-screen flex'>
         <div>
-            <p>Business_Name : {businessdata.Business_Name}</p>
-            <p>Email : {businessdata.Email}</p>
-            <p>Website : {businessdata.Website}</p>
-            <p>Opening_hours : {businessdata.Opening_hours}</p>
-            <p>Location : {businessdata.Location}</p>
-            <p>Image : {businessdata.Image}</p>
-            <p>Contact_number : {businessdata.Contact_Number}</p>
+            <img src="/Images/unnamed.jpg" alt="" width="500px" className='rounded-r-3xl h-[500px] -ml-12 mt-20'/>
         </div>
-        )}
-        {businessdata && <button onClick={handleEdit} className='bg-purple-800 rounded-md text-white h-7 w-28'>Edit Business</button>}
-
-        <button onClick={handleDelete} className='bg-purple-800 rounded-md text-white h-7 w-36 ml-1'>Delete Business</button>
+        <div>
+            <h1 className='font-semibold text-blue-950 text-xl mt-20 ml-10'>
+                Business Profile
+            </h1>
+            <hr className='border-1 border-gray-400 w-[900px] mt-3 '/>
+            <div className='flex mt-7 ml-10'>
+                    <img src={profileData?.DP} alt='DP' width="100px" className='rounded-full border-[6px] border-white'/>
+                    <div className='ml-6 mt-7 text-blue-950 flex'>
+                        <div>
+                            {profileData && <p className='text-3xl font-serif font-semibold'>{profileData.Name}</p>}
+                            {profileData && <p className='text-lg'>+91-{profileData.Mobile_Number}</p>}
+                        </div>
+                    </div>
+            </div>
+            <hr className='border-1 border-gray-400 w-[900px] mt-7 '/>
+                <div className='ml-14 mt-10'>
+                    <table className='text-sm font-semibold text-blue-950'>
+                        <tr>
+                            <td>Business Name</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Business_Name}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Email}</td>
+                        </tr>
+                        <tr>
+                            <td>Website</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Website}</td>
+                        </tr>
+                        <tr>
+                            <td>Opening Hours</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Opening_hours}</td>
+                        </tr>
+                        <tr>
+                            <td>Location</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Location}</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Number</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Contact_Number}</td>
+                        </tr>
+                        <tr>
+                            <td>Image</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Image}</td>
+                        </tr>
+                    </table>
+                    <button onClick={handleEdit} className=' bg-blue-950 text-white text-sm h-8 w-32 font-semibold rounded-lg mt-5'>Edit Business</button>
+                </div>
+        </div>
     </div>
   )
 }
