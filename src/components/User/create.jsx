@@ -55,7 +55,7 @@ const UserProfile = () => {
             </h1>
             <hr className='border-1 border-gray-400 w-[900px] mt-3 '/>
             <div className='flex mt-7 ml-10'>
-            </div>
+        </div>
             <div>
                 <form onSubmit={handlesubmit}>
                     <div className='flex ml-10 mt-9 text-blue-950'>
@@ -92,7 +92,7 @@ const UserProfile = () => {
                         </div>
                         <div className='grid ml-16'>
                             <label className='font-semibold'>Address  </label>
-                            <input 
+                            <input
                                 type='address'
                                 placeholder='Enter Your Address'
                                 value={Address}
@@ -123,7 +123,7 @@ const UserProfile = () => {
                         />  
                     </div>
                     <div className='flex justify-end mr-36'>
-                          <button type='submit' className='bg-blue-950 font-semibold text-sm h-9 w-36 text-white rounded-md hover:bg-sky-800 mt-1 '>Submit</button>
+                        <button type='submit' className='bg-blue-950 font-semibold text-sm h-9 w-36 text-white rounded-md hover:bg-sky-800 mt-1 '>Submit</button>
                     </div>
                 </form>
                 {created && <p className='text-green-800 italic'>{created}</p>}

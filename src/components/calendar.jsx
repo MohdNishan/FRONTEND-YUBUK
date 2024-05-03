@@ -25,8 +25,7 @@ export const LoginSignout = () => {
 }, [googletoken,expiresIn])
 
 function gapiLoaded() {
-    
-    gapi.load('client', initializeGapiClient);
+  gapi.load('client', initializeGapiClient);
 }
 
 async function initializeGapiClient() {
@@ -60,7 +59,7 @@ function gisLoaded() {
           }
           const { access_token, expires_in } = gapi.client.getToken();
           localStorage.setItem('google_token', access_token);
-          localStorage.setItem('expires_in', expires_in)
+          localStorage.setItem('expires_in', expires_in);
           addManualEvent()
         };
         if (!(googletoken && expiresIn)) {

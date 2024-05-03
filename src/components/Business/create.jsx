@@ -82,7 +82,7 @@ const Businessprofile = () => {
                             <input 
                                 type='text'
                                 value={Business_Name}
-                                onChange={(event) => setBusinessName(event.target.value) }
+                                onChange={(event) => setBusinessName(event.target.value)}
                                 className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1'
                             />
                         </div>
