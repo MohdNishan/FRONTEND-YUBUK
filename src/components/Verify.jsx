@@ -10,8 +10,6 @@ const Verify = () => {
     const [invalidOTP, setInvalidOTP] = useState(false);
     const navigate = useNavigate();
 
-
-
     const handleresendotp = async (resend) => {
         resend.preventDefault();
         try {
@@ -25,7 +23,6 @@ const Verify = () => {
 
         }   
     }
-
 
     const handlesubmit = async (verify) => {
         verify.preventDefault();
@@ -65,7 +62,6 @@ const Verify = () => {
                 />}
                 />
             </div>
-
                 <br/>
                 <p className='font-normal mt-4'>Didn't receive the OTP? <button onClick={handleresendotp} 
                     className='underline font-normal'>Resed OTP</button></p>

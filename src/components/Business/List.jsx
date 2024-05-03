@@ -26,7 +26,6 @@ const BusinessList = () => {
         } catch (error) {
             setError(error.message);
         }  
-        
     };
     fetchUserProfile();
 },[]);

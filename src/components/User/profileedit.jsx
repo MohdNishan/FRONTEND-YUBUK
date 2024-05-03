@@ -120,7 +120,7 @@ const Userprofileedit = () => {
                     </div>
                 </div>
                 <button className='border border-black flex h-14 w-44 mt-14 ml-10 text-xl rounded-2xl justify-evenly items-center font-serif' onClick={handleSignout}>
-                    Sign Out 
+                    Sign Out
                     <PiSignOut  className='text-3xl font-'/>
                 </button>
             </div>

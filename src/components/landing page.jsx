@@ -5,7 +5,6 @@ import { HiOutlineArrowSmRight } from "react-icons/hi";
 const Landingpage = () => {
     const navigate = useNavigate();
 
-
     const toLogin = () => {
         navigate('/login')
     }

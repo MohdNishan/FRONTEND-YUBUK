@@ -38,7 +38,6 @@ const Login = () => {
                     placeholder="Mobile No."
                     className=' border-2 border-gray-500 rounded-sm font-semibold mt-14 h-8 px-3 w-64'
                 />
-                
                 <br />
                 <button type="submit" className="bg-sky-500 px-4 py-2 text-white hover:bg-sky-800 sm:px-5 sm:py-1 rounded-lg mt-8 ml-14">Generate OTP</button>
             </form>

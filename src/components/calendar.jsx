@@ -5,12 +5,10 @@ export const LoginSignout = () => {
   const gapi = window.gapi;
   const google = window.google;
 
-  
   const CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
   const API_KEY = import.meta.env.VITE_API_KEY;
   const DISCOVERY_DOC = import.meta.env.VITE_DISCOVERY_DOC;
   const SCOPES = import.meta.env.VITE_SCOPES;
-
 
   const [googletoken, setgoogletoken] = useState()
   const [expiresIn, setexpiresIn] = useState()
@@ -22,7 +20,7 @@ export const LoginSignout = () => {
     setexpiresIn(localStorage.getItem('expires_in'))
     gapiLoaded()
     gisLoaded()
-}, [googletoken,expiresIn])
+  }, [googletoken,expiresIn])
 
 function gapiLoaded() {
   gapi.load('client', initializeGapiClient);
@@ -33,7 +31,6 @@ async function initializeGapiClient() {
         apiKey: API_KEY,
         discoveryDocs: [DISCOVERY_DOC],
     });
-    
     
     if (googletoken && expiresIn) {
         gapi.client.setToken({
@@ -51,23 +48,22 @@ function gisLoaded() {
     }))
   }
   
-  
-  function handleAuthClick() {
-        tokenClient.callback = async (resp) => {
-          if (resp.error) {
-            throw (resp);
-          }
-          const { access_token, expires_in } = gapi.client.getToken();
-          localStorage.setItem('google_token', access_token);
-          localStorage.setItem('expires_in', expires_in);
-          addManualEvent()
-        };
-        if (!(googletoken && expiresIn)) {
-          tokenClient.requestAccessToken({ prompt: 'consent' });
-        } else {
-          tokenClient.requestAccessToken({ prompt: '' });
+function handleAuthClick() {
+      tokenClient.callback = async (resp) => {
+        if (resp.error) {
+          throw (resp);
         }
-  }
+        const { access_token, expires_in } = gapi.client.getToken();
+        localStorage.setItem('google_token', access_token);
+        localStorage.setItem('expires_in', expires_in);
+        addManualEvent()
+      };
+      if (!(googletoken && expiresIn)) {
+        tokenClient.requestAccessToken({ prompt: 'consent' });
+      } else {
+        tokenClient.requestAccessToken({ prompt: '' });
+      }
+}
 
   //Sign out the user upon button click.
 
@@ -84,7 +80,7 @@ function gisLoaded() {
   // }
   
   function addManualEvent(){
-    var event = { 
+    const event = { 
       'summary': 'Event 8',
       'location': 'cusat School, kochi',
       'description': 'Paty time',
@@ -98,7 +94,7 @@ function gisLoaded() {
       },
     }
 
-      var request = gapi.client.calendar.events.insert({'calendarId': 'primary','resource': event,'sendUpdates': 'all'});
+      const request = gapi.client.calendar.events.insert({'calendarId': 'primary','resource': event,'sendUpdates': 'all'});
       request.execute((event)=>{
           console.log(event)
       },(error)=>{
@@ -110,7 +106,6 @@ function gisLoaded() {
       <button id="authorize_button" hidden={googletoken && expiresIn} onClick={handleAuthClick} className='bg-purple-800 h-8 w-36 text-white rounded-md hover:bg-sky-800 mt-1'>Add to Calendar</button>
       <button id="signout_button" hidden={!googletoken && !expiresIn}   onClick={handleAuthClick} className='bg-purple-800 h-8 w-36 text-white rounded-md hover:bg-sky-800 mt-1'>Switch Account</button>
       <button id='add_manual_event' hidden={!googletoken && !expiresIn} onClick={addManualEvent} className='bg-purple-800 h-8 w-36 text-white rounded-md hover:bg-sky-800 mt-1 ml-1'>Add Event</button>
-      {/* <pre id="content" style={{ whiteSpace: 'pre-wrap' }}></pre> */}
     </div>
   )
 }
