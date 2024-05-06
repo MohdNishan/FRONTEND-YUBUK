@@ -22,7 +22,6 @@ const Userprofileedit = () => {
     const [profileData, setProfileData] = useState();
     const navigate = useNavigate();
 
-
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
@@ -33,8 +32,7 @@ const Userprofileedit = () => {
                 console.log(response)
             } catch (error) {
                 setError(error.message);
-            }  
-            
+            }
         };
         fetchUserProfile();
     },[]);
@@ -66,7 +64,7 @@ const Userprofileedit = () => {
             setupdatesuccess(false)
             setupdatefail(true)
         }
-    } 
+    }
     const handleChange = (event) => {
         const { name, value } = event.target;
         setuserdata(prevState => ({
@@ -171,7 +169,7 @@ const Userprofileedit = () => {
                             <div className='grid'>
                                 <label className='font-bold'>Email </label>
                                 <input
-                                    type="text" 
+                                    type="text"
                                     name='Email'
                                     value={userdata.Email || ''}
                                     onChange={handleChange}
@@ -198,11 +196,10 @@ const Userprofileedit = () => {
                             </button>
                         </div>
                     </form>
-                    {updatesuccess && <p style={{ color:'green' }}>Profile Updated Successfully</p>}
+                    {updatesuccess && <p className='text-green-600 font-semibold italic ml-14 -mt-7'>"Profile Updated Successfully"</p>}
                 </div>
             </div>
-            
-    </div>
+    </div>  
   )
 }
 

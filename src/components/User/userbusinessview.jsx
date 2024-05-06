@@ -18,7 +18,7 @@ const UserBusinessView = () => {
                 setbusinessdata(response.data[0]);
                 console.log(response.data)
             }
-            console.log(response.data[0].id);
+            console.log(response.data[0]);
         } catch (error) {
             console.error(error);
         }
@@ -31,13 +31,13 @@ const UserBusinessView = () => {
         </h1>
         {businessdata && (
         <div>
-            <p>Business_Name : {businessdata.Business_Name}</p>
-            <p>Email : {businessdata.Email}</p>
-            <p>Website : {businessdata.Website}</p>
-            <p>Opening_hours : {businessdata.Opening_hours}</p>
-            <p>Location : {businessdata.Location}</p>
-            <p>Image : {businessdata.Image}</p>
-            <p>Contact_number : {businessdata.Contact_Number}</p>
+            <p>Business_Name : {businessdata?.Business_Name}</p>
+            <p>Email : {businessdata?.Email}</p>
+            <p>Website : {businessdata?.Website}</p>
+            <p>Opening_hours : {businessdata?.Opening_hours}</p>
+            <p>Location : {businessdata?.Location}</p>
+            <p>Image : {businessdata?.Image}</p>
+            <p>Contact_number : {businessdata?.Contact_Number}</p>
         </div>
         )}
         <button>Book Now</button>

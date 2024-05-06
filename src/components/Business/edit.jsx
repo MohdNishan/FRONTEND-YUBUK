@@ -163,7 +163,7 @@ const Businessedit = () => {
                                name='Contact_Number'
                                value={businessdata.Contact_Number || ''}
                                onChange={handleChange}
-                                className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1'
+                               className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1'
                             />
                         </div>
                     </div>
@@ -177,11 +177,12 @@ const Businessedit = () => {
                         />  
                     </div>
                     <div className='flex justify-end mr-36'>
-                          <button type='submit' className='bg-blue-950 font-semibold text-sm h-9 w-36 text-white rounded-md hover:bg-sky-800 mt-1 '>
+                        <button type='submit' className='bg-blue-950 font-semibold text-sm h-9 w-36 text-white rounded-md hover:bg-sky-800 mt-1 '>
                             Submit
                         </button>
                     </div>
                 </form>
+                {updatesuccess && <p className='text-green-600 font-semibold italic ml-14 -mt-7'>"Updated Successfully"</p>}
             </div>
         </div> 
     </div>

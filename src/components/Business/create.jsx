@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import api from '../../api';
 import { useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 const Businessprofile = () => {
@@ -16,6 +17,7 @@ const Businessprofile = () => {
     
     const [created, setcreated] = useState("");
     const [exist, setexist] = useState("");
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchUserProfile = async () => {
@@ -53,6 +55,10 @@ const Businessprofile = () => {
     const handleImageChange = (event) => {
         const file = event.target.files[0]
         setImage(file)
+    }
+
+    const handlesuccess = () => {
+        navigate(`/business/list/${profile_id}`)
     }
 
   return (
@@ -146,7 +152,7 @@ const Businessprofile = () => {
                         />  
                     </div>
                     <div className='flex justify-end mr-36'>
-                        <button type='submit' className='bg-blue-950 font-semibold text-sm h-9 w-36 text-white rounded-md hover:bg-sky-800 mt-1 '>Submit</button>
+                        <button type='submit' onClick={handlesuccess} className='bg-blue-950 font-semibold text-sm h-9 w-36 text-white rounded-md hover:bg-sky-800 mt-1 '>Submit</button>
                     </div>
                 </form>
                 {/* {created && <p className='text-green-800 italic'>{created}</p>}

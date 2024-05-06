@@ -24,7 +24,6 @@ const Userprofileview = () => {
             } catch (error) {
                 setError(error.message);
             }  
-            
         };
         fetchUserProfile();
     },[]);
@@ -36,7 +35,6 @@ const Userprofileview = () => {
     const handleCreate = () => {
         navigate("/user/create")
     }
-        
 
     const handlebusiness = () => {
         navigate(`/business/list/${profileData.id}`)
