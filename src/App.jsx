@@ -23,7 +23,7 @@ import SlotSelection from "./components/User/slotselection";
     <Router>
       <Routes>
         <Route path="/" exact Component={Landingpage}/>
-        <Route path="/login" exact Component={Login}/>
+        <Route path="/login"   Component={Login}/>
         <Route path="/verify" Component={Verify}/>
         <Route path="/user/create" Component={UserProfile}/>
         <Route path="/user/edit" Component={Userprofileedit}/>

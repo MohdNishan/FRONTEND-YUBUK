@@ -6,6 +6,7 @@ import { FaAngleRight } from "react-icons/fa6";
 import { FaUserEdit } from "react-icons/fa";
 import { IoBusiness } from "react-icons/io5";
 import { PiSignOut } from "react-icons/pi";
+import { LoginSignout } from '../calendar';
 
 
 const Userprofileview = () => {
@@ -45,7 +46,7 @@ const Userprofileview = () => {
     }
 
     return (
-        <div className='flex'>
+        <div className='md:flex'>
             <div className='bg-white h-full w-96'>
                 <h1 className='text-4xl font-bold ml-28 mt-16'>
                     YJ
@@ -95,29 +96,31 @@ const Userprofileview = () => {
                 <hr className='border-1 border-gray-400 w-[1020px] mt-10 ml-7'/>
                 <div className='ml-14 mt-10'>
                     <table className='text-sm font-semibold text-blue-950'>
-                        <tr>
-                            <td>Email</td>
-                            <td className='font-extrabold profile-td'>:</td>
-                            <td className='profile-td'>{profileData?.Email}</td>
-                        </tr>
-                        <tr >
-                            <td>Date of birth</td>
-                            <td className='font-extrabold profile-td'>:</td>
-                            <td className='profile-td'>{profileData?.Date_of_Birth}</td>
-                        </tr>
-                        <tr>
-                            <td>Address</td>
-                            <td className='font-extrabold profile-td'>:</td>
-                            <td className='profile-td'>{profileData?.Address}</td>
-                        </tr>
+                        <tbody>
+                            <tr>
+                                <td>Email</td>
+                                <td className='font-extrabold profile-td'>:</td>
+                                <td className='profile-td'>{profileData?.Email}</td>
+                            </tr>
+                            <tr>
+                                <td>Date of birth</td>
+                                <td className='font-extrabold profile-td'>:</td>
+                                <td className='profile-td'>{profileData?.Date_of_Birth}</td>
+                            </tr>
+                            <tr>
+                                <td>Address</td>
+                                <td className='font-extrabold profile-td'>:</td>
+                                <td className='profile-td'>{profileData?.Address}</td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
                 <button onClick={handleEdit} className='mt-4 ml-14 bg-blue-950 text-white font-semibold h-8 w-36 rounded-lg'>
                     Edit Profile
                 </button>
                 </>}
-                {!profileData && <button onClick={handleCreate}  className=' ml-8 bg-blue-950 text-white text-sm h-8 w-32 font-semibold rounded-lg mt-5'>
-                    Create Profile
+                {!profileData && <button onClick={handleCreate}  className=' ml-8 bg-blue-950 text-white text-sm h-8 w-36 font-semibold rounded-lg mt-5'>
+                    Create Your Profile
                 </button>}
             </div>
         </div>

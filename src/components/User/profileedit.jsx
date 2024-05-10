@@ -22,6 +22,20 @@ const Userprofileedit = () => {
     const [profileData, setProfileData] = useState();
     const navigate = useNavigate();
 
+
+        const [DP, setDP] = useState(null);
+    
+
+        const handleImageChange = (event) => {
+            const file = event.target.files[0];
+            setDP(file);
+        }
+        const handleButtonClick = () => {
+            const fileInput = document.getElementById('fileInput');
+            fileInput.click();
+        };
+    
+
     useEffect(() => {
         const fetchUserProfile = async () => {
             try {
@@ -77,11 +91,6 @@ const Userprofileedit = () => {
         navigate('/login')
     }
 
-    const handleImageChange = (event) => {
-        const file = event.target.files[0]
-        setDP(file)
-    }
-
     const handleView = () => {
         navigate('/user/view')
     }
@@ -135,9 +144,15 @@ const Userprofileedit = () => {
                                 {profileData && <p className='text-3xl font-serif font-semibold'>{profileData.Name}</p>}
                                 {profileData && <p className='text-lg'>+91-{profileData.Mobile_Number}</p>}
                             </div>
-                            <button onClick={handleImageChange} className='mt-4 ml-44 bg-blue-950 text-white text-sm font-semibold h-11 w-44 rounded-lg'>
-                                Upload New Photo
-                            </button>
+                            <input
+                                type='file'
+                                id='fileInput'
+                                style={{ display: 'none' }}
+                                onChange={handleImageChange}
+                                className='w-52 mt-1'
+                            />  
+                            <button onClick={handleButtonClick} className='mt-4 ml-44 bg-blue-950 text-white text-sm font-semibold h-11 w-44 rounded-lg '>Upload New Photo</button>
+                            {DP && <p className='mt-5'>{DP.name}</p>}
                         </div>
                     </div>
                 <hr className='border-1 border-gray-400 w-[1020px] mt-10 ml-7'/>

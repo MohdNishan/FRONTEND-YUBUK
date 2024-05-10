@@ -85,7 +85,7 @@ const Businessprofile = () => {
                     <div className='flex ml-10 mt-9 text-blue-950'>
                         <div className='grid'>
                             <label className='font-semibold'>Business Name  </label>
-                            <input 
+                            <input
                                 type='text'
                                 value={Business_Name}
                                 onChange={(event) => setBusinessName(event.target.value)}
@@ -152,7 +152,7 @@ const Businessprofile = () => {
                         />  
                     </div>
                     <div className='flex justify-end mr-36'>
-                        <button type='submit' onClick={handlesuccess} className='bg-blue-950 font-semibold text-sm h-9 w-36 text-white rounded-md hover:bg-sky-800 mt-1 '>Submit</button>
+                        <button type='submit' className='bg-blue-950 font-semibold text-sm h-9 w-36 text-white rounded-md hover:bg-sky-800 mt-1 '>Submit</button>
                     </div>
                 </form>
                 {/* {created && <p className='text-green-800 italic'>{created}</p>}

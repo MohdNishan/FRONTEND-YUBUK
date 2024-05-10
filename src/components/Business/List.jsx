@@ -31,7 +31,6 @@ const BusinessList = () => {
 },[]);
 
 
-
   useEffect(() => {
     const fetchBusinesses = async () => {
       try {
@@ -56,7 +55,7 @@ const BusinessList = () => {
 
   const handleView = () => {
     navigate('/user/view')
-}
+  }
 
 const handleEdit = () => {
   navigate('/user/edit');

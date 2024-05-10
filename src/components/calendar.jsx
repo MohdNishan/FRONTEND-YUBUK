@@ -79,17 +79,17 @@ function handleAuthClick() {
   //   }
   // }
   
-  function addManualEvent(){
+  function addManualEvent() {
     const event = { 
-      'summary': 'Event 8',
+      'summary': 'Event 1',
       'location': 'cusat School, kochi',
       'description': 'Paty time',
       'start': {
-        'dateTime': '2024-04-21T04:04:00.000Z',
+        'dateTime': '2024-05-21T04:04:00.000Z',
         'timeZone': 'UTC'
       },
       'end': {
-        'dateTime': '2024-04-22T04:35:00.000Z',
+        'dateTime': '2024-05-22T04:35:00.000Z',
         'timeZone': 'UTC'
       },
     }
@@ -97,7 +97,7 @@ function handleAuthClick() {
       const request = gapi.client.calendar.events.insert({'calendarId': 'primary','resource': event,'sendUpdates': 'all'});
       request.execute((event)=>{
           console.log(event)
-      },(error)=>{
+      },(error) => {
         console.error(error);
       });
   }

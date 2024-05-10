@@ -60,7 +60,7 @@ const Verify = () => {
                 style={{width:"28px"}}
                 className='border border-gray-400 bg-gray-300 rounded-md h-10 ml-1.5 text-center'
                 />}
-                />
+            />
             </div>
                 <br/>
                 <p className='font-normal mt-4'>Didn't receive the OTP? <button onClick={handleresendotp} 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import api from '../../api';
+import { MdEmail } from "react-icons/md";
 
 const UserProfile = () => {
     const [Name, setName] = useState('');
@@ -60,7 +61,7 @@ const UserProfile = () => {
                 <form onSubmit={handlesubmit}>
                     <div className='flex ml-10 mt-9 text-blue-950'>
                         <div className='grid'>
-                            <label className='font-semibold'>Name  </label>
+                            <label className='font-semibold'>Name </label>
                             <input
                                 type='text'
                                 placeholder='Enter Your Name'
@@ -71,18 +72,23 @@ const UserProfile = () => {
                         </div>
                         <div className='grid ml-16'>
                             <label className='font-semibold'>Email  </label>
-                            <input
-                                type='email'
-                                placeholder='Enter Your Email'
-                                value={Email}
-                                onChange={(event) => setEmail(event.target.value)}
-                                className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1'
-                            />
+                            <div className='relative'>
+                                <input
+                                    type='email'
+                                    placeholder='Enter Your Email'
+                                    value={Email}
+                                    onChange={(event) => setEmail(event.target.value)}
+                                    className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1 pl-10'
+                                />
+                                <MdEmail className="absolute left-3 top-3 text-gray-400 pointer-events-none size-6" />
+                            </div>
                         </div>
                     </div>
                     <div className='flex ml-10 mt-5 text-blue-950'>
                         <div className='grid'>
-                            <label className='font-semibold'>Mobile Number  </label>
+                            <label className='font-semibold'> 
+                                Mobile Number  
+                            </label>
                             <input
                                 type='text'
                                 value={Mobile_Number}
