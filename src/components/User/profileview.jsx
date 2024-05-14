@@ -45,6 +45,10 @@ const Userprofileview = () => {
         navigate('/login')
     }
 
+    const bookbusiness = () => {
+        navigate(`/user/business/view`)
+    }
+
     return (
         <div className='md:flex'>
             <div className='bg-white h-full w-96'>
@@ -122,6 +126,10 @@ const Userprofileview = () => {
                 {!profileData && <button onClick={handleCreate}  className=' ml-8 bg-blue-950 text-white text-sm h-8 w-36 font-semibold rounded-lg mt-5'>
                     Create Your Profile
                 </button>}
+                <br/>
+                <button onClick={bookbusiness} className='ml-14 bg-green-700 text-white text-sm h-8 w-36 font-semibold rounded-lg mt-3'>
+                    Book a Business
+                </button>
             </div>
         </div>
     );

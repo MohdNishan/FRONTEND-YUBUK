@@ -84,41 +84,43 @@ const Profileview = () => {
             <hr className='border-1 border-gray-400 w-[900px] mt-7 '/>
             <div className='ml-14 mt-10'>
                 <table className='text-sm font-semibold text-blue-950'>
-                    <tr>
-                        <td>Business Name</td>
-                        <td className='font-extrabold profile-td'>:</td>
-                        <td className='profile-td'>{businessdata?.Business_Name}</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td className='font-extrabold profile-td'>:</td>
-                        <td className='profile-td'>{businessdata?.Email}</td>
-                    </tr>
-                    <tr>
-                        <td>Website</td>
-                        <td className='font-extrabold profile-td'>:</td>
-                        <td className='profile-td'>{businessdata?.Website}</td>
-                    </tr>
-                    <tr>
-                        <td>Opening Hours</td>
-                        <td className='font-extrabold profile-td'>:</td>
-                        <td className='profile-td'>{businessdata?.Opening_hours}</td>
-                    </tr>
-                    <tr>
-                        <td>Location</td>
-                        <td className='font-extrabold profile-td'>:</td>
-                        <td className='profile-td'>{businessdata?.Location}</td>
-                    </tr>
-                    <tr>
-                        <td>Contact Number</td>
-                        <td className='font-extrabold profile-td'>:</td>
-                        <td className='profile-td'>{businessdata?.Contact_Number}</td>
-                    </tr>
-                    <tr>
-                        <td>Image</td>
-                        <td className='font-extrabold profile-td'>:</td>
-                        <td className='profile-td'>{businessdata?.Image}</td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <td>Business Name</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Business_Name}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Email}</td>
+                        </tr>
+                        <tr>
+                            <td>Website</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Website}</td>
+                        </tr>
+                        <tr>
+                            <td>Opening Hours</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Opening_hours}</td>
+                        </tr>
+                        <tr>
+                            <td>Location</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Location}</td>
+                        </tr>
+                        <tr>
+                            <td>Contact Number</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Contact_Number}</td>
+                        </tr>
+                        <tr>
+                            <td>Image</td>
+                            <td className='font-extrabold profile-td'>:</td>
+                            <td className='profile-td'>{businessdata?.Image}</td>
+                        </tr>
+                    </tbody>
                 </table>
                 <button onClick={handleEdit} className=' bg-blue-950 text-white text-sm h-8 w-32 font-semibold rounded-lg mt-5'>Edit Business</button>
             </div>

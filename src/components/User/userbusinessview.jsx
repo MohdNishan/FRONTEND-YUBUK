@@ -25,15 +25,23 @@ const UserBusinessView = () => {
     }
 
   return (
-    <section className='grid gap-8 md:grid-cols-2 md:items-center md:text-left lg:bg-slate-600'> 
+    <div>
+        <h1 className='text-2xl font-serif font-bold'>
+            Business Profile
+        </h1>
+        {businessdata && (
         <div>
-            <img src="/Images/tree.jpg" alt="" className='m-5 rounded-lg'/>
+            <p>Business_Name : {businessdata?.Business_Name}</p>
+            <p>Email : {businessdata?.Email}</p>
+            <p>Website : {businessdata?.Website}</p>
+            <p>Opening_hours : {businessdata?.Opening_hours}</p>
+            <p>Location : {businessdata?.Location}</p>
+            <p>Image : {businessdata?.Image}</p>
+            <p>Contact_number : {businessdata?.Contact_Number}</p>
         </div>
-        <div>
-            <h1 className='mb-2 text-3xl font-medium'>Heading</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde esse, labore, praesentium at perferendis voluptatum similique debitis modi officia suscipit beatae accusantium molestiae. Quod animi itaque facere molestias quidem numquam.</p>
-        </div>
-    </section>
+        )}
+        <button>Book Now</button>
+    </div>
   )
 }
 

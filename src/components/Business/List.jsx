@@ -83,8 +83,8 @@ const handleEdit = () => {
         </div>
         <div className=' mt-3 flex h-20 bg-gray-300 rounded-r-full'>
             <IoBusiness className='ml-6 mt-7 text-2xl'/> 
-            <a href="" className='ml-5 mt-7 font-semibold text-lg font-serif'>My Business</a>
-            <div className='size-16 bg-white rounded-full ml-10 mt-2'>
+            <a href="" className='ml-5 mt-7 font-semibold text-xl font-serif'>My Business</a>
+            <div className='size-16 bg-white rounded-full ml-8 mt-2'>
             <FaAngleRight className='text-2xl mt-5 ml-5'/>
             </div>
         </div>

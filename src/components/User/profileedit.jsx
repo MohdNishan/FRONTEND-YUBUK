@@ -114,8 +114,8 @@ const Userprofileedit = () => {
                 </div>
                 <div className='mt-3 flex h-20 bg-gray-300 rounded-r-full'>
                     <FaUserEdit className='ml-6 mt-7 text-2xl'/> 
-                    <a href="" className='ml-4 mt-7 font-semibold text-lg font-serif'> Edit Profile</a>
-                    <div className='size-16 bg-white rounded-full ml-14 mt-2'>
+                    <a href="" className='ml-3 mt-7 font-semibold text-xl font-serif'> Edit Profile</a>
+                    <div className='size-16 bg-white rounded-full ml-12 mt-2'>
                     <FaAngleRight className='text-2xl mt-5 ml-5'/>
                     </div>
                 </div>
