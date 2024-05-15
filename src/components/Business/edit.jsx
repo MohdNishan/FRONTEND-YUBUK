@@ -15,6 +15,7 @@ const Businessedit = () => {
         Contact_Number: ''
     });
     
+    const [image, setImage] = useState(null)
     const [updatesuccess, setupdatesuccess] = useState("");
     const [updatefail, setupdatefail] = useState("");
     const [profileData, setProfileData] = useState('')
@@ -99,7 +100,7 @@ const Businessedit = () => {
                     </div>
                 </div>
             </div>
-            <div>
+            <div>   
                 <form onSubmit={handleSubmit}>
                     <div className='flex ml-10 mt-9 text-blue-950'>
                         <div className='grid'>

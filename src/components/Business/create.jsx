@@ -72,13 +72,13 @@ const Businessprofile = () => {
             </h1>
             <hr className='border-1 border-gray-400 w-[900px] mt-3 '/>
             <div className='flex mt-7 ml-10'>
-                    <img src={profileData?.DP} alt='DP' width="100px" className='rounded-full border-[6px] border-white'/>
-                    <div className='ml-6 mt-7 text-blue-950 flex'>
-                        <div>
-                            {profileData && <p className='text-3xl font-serif font-semibold'>{profileData.Name}</p>}
-                            {profileData && <p className='text-lg'>+91-{profileData.Mobile_Number}</p>}
-                        </div>
+                <img src={profileData?.DP} alt='DP' width="100px" className='rounded-full border-[6px] border-white'/>
+                <div className='ml-6 mt-7 text-blue-950 flex'>
+                    <div>
+                        {profileData && <p className='text-3xl font-serif font-semibold'>{profileData.Name}</p>}
+                        {profileData && <p className='text-lg'>+91-{profileData.Mobile_Number}</p>}
                     </div>
+                </div>
             </div>
             <div>
                 <form onSubmit={handleSubmit}>
