@@ -31,7 +31,7 @@ const UserProfile = () => {
             ); 
             setcreated(true)
             console.log(response);
-            navigate(`/user/view`)
+            navigate('/user/view')
         } catch (error) {
             console.error({ message: 'Error', error_message: error });
             setexist(true)
