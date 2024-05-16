@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../api';
 import { MdEmail } from "react-icons/md";
+import { useNavigate } from 'react-router-dom';
 
 const UserProfile = () => {
     const [Name, setName] = useState('');
@@ -11,6 +12,7 @@ const UserProfile = () => {
     const [Date_of_Birth, setDOB] = useState('');
     const [created, setcreated] = useState(false);
     const [exist, setexist] = useState(false);
+    const navigate = useNavigate()
     
     
     const handlesubmit = async (event) => {
@@ -25,15 +27,11 @@ const UserProfile = () => {
             formData.append('Address', Address)
             formData.append('Date_of_Birth', Date_of_Birth)
 
-            const response = await api.post('/user',formData,
-            {
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
-            }
-            );
+            const response = await api.post('/user',formData
+            ); 
             setcreated(true)
             console.log(response);
+            navigate(`/user/view`)
         } catch (error) {
             console.error({ message: 'Error', error_message: error });
             setexist(true)
@@ -78,9 +76,10 @@ const UserProfile = () => {
                                     placeholder='Enter Your Email'
                                     value={Email}
                                     onChange={(event) => setEmail(event.target.value)}
-                                    className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1 pl-10'
+                                    className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1 pl-9'
                                 />
-                                <MdEmail className="absolute left-3 top-3 text-gray-400 pointer-events-none size-6" />
+                                <MdEmail className="absolute left-2 top-3 text-gray-400 pointer-events-none size-6" />
+                                    
                             </div>
                         </div>
                     </div>

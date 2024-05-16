@@ -78,7 +78,7 @@ const Userprofileview = () => {
                 </div>
                 <button className='border border-black flex h-14 w-44 mt-14 ml-10 text-xl rounded-2xl justify-evenly items-center font-serif' onClick={handleSignout}>
                     Sign Out 
-                    <PiSignOut  className='text-3xl font-'/>
+                    <PiSignOut className='text-3xl font-'/>
                 </button>
             </div>
             <div className='bg-rose-50 w-full ml-2 h-screen'>
@@ -127,9 +127,10 @@ const Userprofileview = () => {
                     Create Your Profile
                 </button>}
                 <br/>
+                { profileData && 
                 <button onClick={bookbusiness} className='ml-14 bg-green-700 text-white text-sm h-8 w-36 font-semibold rounded-lg mt-3'>
                     Book a Business
-                </button>
+                </button>}
             </div>
         </div>
     );

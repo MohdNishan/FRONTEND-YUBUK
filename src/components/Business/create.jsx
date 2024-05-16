@@ -2,6 +2,10 @@ import React, { useEffect, useState } from 'react'
 import api from '../../api';
 import { useParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { MdEmail } from "react-icons/md";
+import { LuClock10 } from "react-icons/lu";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaPhone } from "react-icons/fa6";
 
 
 const Businessprofile = () => {
@@ -38,13 +42,25 @@ const Businessprofile = () => {
         event.preventDefault();
         try {
 
-            const response = await api.post(
-                '/business',
-                { Business_Name,Email,Website,Opening_hours,Location,Image,Contact_Number,user_id:profile_id },
-            )
+            const formData = new FormData();
+            formData.append('Business_Name', Business_Name)
+            formData.append('Email', Email)
+            formData.append('Opening_hours', Opening_hours)
+            formData.append('Location', Location)
+            formData.append('Image', Image)
+            formData.append('Contact_Number', Contact_Number)
+
+            const response = await api.post('/business',formData,
+            {
+                headers: {
+                    'Content-Type':'multipart/form-data'
+                }
+            }
+            );
             setcreated(response.data)
             setexist("")
             console.log(response)
+            navigate(`/business/list/${profile_id}`)
         } catch (error) {
             setexist(error.response.data)
             setcreated("")
@@ -57,9 +73,9 @@ const Businessprofile = () => {
         setImage(file)
     }
 
-    const handlesuccess = () => {
-        navigate(`/business/list/${profile_id}`)
-    }
+    // const handlesuccess = () => {
+    //     navigate(`/business/list/${profile_id}`)
+    // }
 
   return (
     <div className='bg-rose-50 w-full h-screen flex'>
@@ -94,12 +110,15 @@ const Businessprofile = () => {
                         </div>
                         <div className='grid ml-16'>
                             <label className='font-semibold'>Email  </label>
-                            <input 
-                                type='email'
-                                value={Email}
-                                onChange={(event) => setemail(event.target.value)}
-                                className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1'
-                            />
+                            <div className='relative'>
+                                <input 
+                                    type='email'
+                                    value={Email}
+                                    onChange={(event) => setemail(event.target.value)}
+                                    className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1 pl-9'
+                                />
+                                <MdEmail className="absolute left-2 top-3 text-gray-400 pointer-events-none size-6" />
+                            </div>
                         </div>
                     </div>
                     <div className='flex ml-10 mt-5 text-blue-950'>
@@ -114,32 +133,41 @@ const Businessprofile = () => {
                         </div>
                         <div className='grid ml-16'>
                             <label className='font-semibold'>Operating Hours  </label>
-                            <input 
-                                type='text'
-                                value={Opening_hours}
-                                onChange={(event) => setOpeninghours(event.target.value)}
-                                className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1'
-                            />
+                            <div className='relative'>
+                                <input 
+                                    type='text'
+                                    value={Opening_hours}
+                                    onChange={(event) => setOpeninghours(event.target.value)}
+                                    className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1 pl-8'
+                                />
+                                <LuClock10 className="absolute left-2 top-4 text-gray-500 pointer-events-none size-5" />
+                            </div>
                         </div>
                     </div>
                     <div className='flex ml-10 mt-5 text-blue-950'>
                         <div className='grid'>
                             <label className='font-semibold'>Location  </label>
-                            <input
-                                type='text'
-                                value={Location}
-                                onChange={(event) => setLocation(event.target.value)}
-                                className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1'
-                            />
+                            <div className='relative'>
+                                <input
+                                    type='text'
+                                    value={Location}
+                                    onChange={(event) => setLocation(event.target.value)}
+                                    className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1 pl-7'
+                                />
+                                <FaLocationDot className="absolute left-2 top-3 text-gray-500 pointer-events-none size-5"/>
+                            </div>
                         </div>
                         <div className='grid ml-16'>
                             <label className='font-semibold'>Contact Number </label>
-                            <input
-                               type='text'
-                               value={Contact_Number}
-                               onChange={(event) => setContactnumber(event.target.value)}
-                                className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1'
-                            />
+                            <div className='relative'>
+                                <input
+                                   type='text'
+                                   value={Contact_Number}
+                                   onChange={(event) => setContactnumber(event.target.value)} 
+                                    className='border-2 border-gray-400 rounded-lg h-10 w-80 p-3 mt-1 pl-9'
+                                />
+                                <FaPhone className="absolute left-3 top-4 text-gray-500 pointer-events-none size-5"/>
+                            </div>
                         </div>
                     </div>
                     <div className='grid ml-10 mt-5 text-blue-950'>
@@ -153,6 +181,7 @@ const Businessprofile = () => {
                     </div>
                     <div className='flex justify-end mr-36'>
                         <button type='submit' className='bg-blue-950 font-semibold text-sm h-9 w-36 text-white rounded-md hover:bg-sky-800 mt-1 '>Submit</button>
+                        
                     </div>
                 </form>
                 {/* {created && <p className='text-green-800 italic'>{created}</p>}

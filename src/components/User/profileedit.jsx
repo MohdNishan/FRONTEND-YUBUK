@@ -30,7 +30,7 @@ const Userprofileedit = () => {
             const file = event.target.files[0];
             setDP(file);
         }
-        const handleButtonClick = () => {
+        const   handleButtonClick = () => {
             const fileInput = document.getElementById('fileInput');
             fileInput.click();
         };
@@ -69,7 +69,21 @@ const Userprofileedit = () => {
     const handleSubmit = async (event) =>{
         event.preventDefault();
         try{
-            const response = await api.put('/user',userdata);
+
+            const formData = new FormData()
+            formData.append('Name', userdata.Name)
+            formData.append('Address', userdata.Address)
+            formData.append('Email', userdata.Email)
+            formData.append('Date_of_Birth', userdata.Date_of_Birth)
+            formData.append('DP', DP)
+
+            const response = await api.put('/user',formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }
+            );
             setupdatesuccess(true)
             setupdatefail(false)
             console.log(response);
@@ -183,13 +197,16 @@ const Userprofileedit = () => {
                         <div className='flex ml-10 mt-7 text-blue-950'>
                             <div className='grid'>
                                 <label className='font-bold'>Email </label>
+                                <div className='relative'>
                                 <input
                                     type="text"
                                     name='Email'
                                     value={userdata.Email || ''}
                                     onChange={handleChange}
-                                    className='border-2 border-gray-400 rounded-lg h-11 w-96 p-3 mt-4'
+                                    className='border-2 border-gray-400 rounded-lg h-11 w-96 p-3 mt-4 pl-9'
                                 />
+                                <MdEmail className="absolute left-2 top-6 text-gray-400 pointer-events-none size-7" />
+                                </div>
                             </div>
                             <div className='grid ml-16'>
                                 <label className='font-bold'>Date of birth </label>
