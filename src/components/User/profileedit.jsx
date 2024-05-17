@@ -87,6 +87,7 @@ const Userprofileedit = () => {
             setupdatesuccess(true)
             setupdatefail(false)
             console.log(response);
+            navigate('/user/view')
         }  catch (error) {
             console.error({ message: 'Error', error_message: error });
             setupdatesuccess(false)
