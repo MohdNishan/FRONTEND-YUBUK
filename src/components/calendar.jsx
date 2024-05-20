@@ -27,42 +27,42 @@ function gapiLoaded() {
 }
 
 async function initializeGapiClient() {
-    await gapi.client.init({
-        apiKey: API_KEY,
-        discoveryDocs: [DISCOVERY_DOC],
+  await gapi.client.init({
+    apiKey: API_KEY,
+    discoveryDocs: [DISCOVERY_DOC],
     });
-    
-    if (googletoken && expiresIn) {
-        gapi.client.setToken({
-            access_token: googletoken,
-            expires_in: expiresIn,
-        });
-    }
+  
+  if (googletoken && expiresIn) {
+      gapi.client.setToken({
+        access_token: googletoken,
+        expires_in: expiresIn,
+      });
+  }
 }
 
 function gisLoaded() {
-    setTokenClient(google.accounts.oauth2.initTokenClient({
-        client_id: CLIENT_ID,
-        scope: SCOPES,
-        callback: ""
-    }))
-  }
+  setTokenClient(google.accounts.oauth2.initTokenClient({
+    client_id: CLIENT_ID,
+    scope: SCOPES,
+    callback: ""
+  }))
+}
   
 function handleAuthClick() {
-      tokenClient.callback = async (resp) => {
-        if (resp.error) {
-          throw (resp);
-        }
-        const { access_token, expires_in } = gapi.client.getToken();
-        localStorage.setItem('google_token', access_token);
-        localStorage.setItem('expires_in', expires_in);
-        addManualEvent()
-      };
-      if (!(googletoken && expiresIn)) {
-        tokenClient.requestAccessToken({ prompt: 'consent' });
-      } else {
-        tokenClient.requestAccessToken({ prompt: '' });
-      }
+  tokenClient.callback = async (resp) => {
+    if (resp.error) {
+      throw (resp);
+    }
+    const { access_token, expires_in } = gapi.client.getToken();
+    localStorage.setItem('google_token', access_token);
+    localStorage.setItem('expires_in', expires_in);
+    addManualEvent()
+  };
+  if (!(googletoken && expiresIn)) {
+    tokenClient.requestAccessToken({ prompt: 'consent' });
+  } else {
+    tokenClient.requestAccessToken({ prompt: '' });
+  }
 }
 
   //Sign out the user upon button click.
