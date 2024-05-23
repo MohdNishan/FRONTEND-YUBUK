@@ -30,13 +30,13 @@ async function initializeGapiClient() {
   await gapi.client.init({
     apiKey: API_KEY,
     discoveryDocs: [DISCOVERY_DOC],
-    });
+  });
   
   if (googletoken && expiresIn) {
-      gapi.client.setToken({
-        access_token: googletoken,
-        expires_in: expiresIn,
-      });
+    gapi.client.setToken({
+      access_token: googletoken,
+      expires_in: expiresIn,
+    });
   }
 }
 

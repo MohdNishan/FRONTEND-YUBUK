@@ -131,6 +131,7 @@ const Userprofileview = () => {
                 <button onClick={bookbusiness} className='ml-14 bg-green-700 text-white text-sm h-8 w-36 font-semibold rounded-lg mt-3'>
                     Book a Business
                 </button>}
+                {/* <LoginSignout/> */}
             </div>
         </div>
     );

@@ -6,19 +6,19 @@ import { useNavigate } from 'react-router-dom';
 const Businessedit = () => {
 
     const [businessdata, setbusinessdata] = useState({
+        id:'',
         Business_Name: '',
         Email: '',
         Website: '',
         Opening_hours: '',
         Location: '',
-        Image: '',
         Contact_Number: ''
     });
     
-    const [image, setImage] = useState(null)
+    const [Image, setImage] = useState(null)
     const [updatesuccess, setupdatesuccess] = useState("");
     const [updatefail, setupdatefail] = useState("");
-    const [profileData, setProfileData] = useState('')
+    const [profileData, setProfileData] = useState("")
     const { business_id } = useParams()
     const navigate = useNavigate()
 
@@ -51,11 +51,30 @@ const Businessedit = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
         try {
-            const response = await api.put(`/business/${business_id}`,businessdata)
+
+            const formData = new FormData()
+            formData.append('Business_Name', businessdata.Business_Name)
+            formData.append('Email', businessdata.Email)
+            formData.append('Website', businessdata.Website)
+            formData.append('Opening_hours', businessdata.Opening_hours)
+            formData.append('Location', businessdata.Location)
+            formData.append('Image', Image)
+            formData.append('Contact_Number', businessdata.Contact_Number)
+            formData.append('id', businessdata.id)
+
+            const response = await api.put(`/business/${business_id}`,formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }
+            )
             setupdatesuccess(response.data)
             setupdatefail("")
             console.log(response)
+            navigate(`/business/view/${business_id}`)
         } catch (error) {
             console.log({ message: 'Error', error_messge: error})
             setupdatesuccess("")
@@ -80,9 +99,8 @@ const Businessedit = () => {
         navigate(`/business/view/${business_id}`)
     }
 
-
   return (
-    <div className='bg-rose-50 w-full h-screen flex'>
+    <div className='bg-rose-50 w-full h-full flex'>
         <div>
             <img src="/Images/unnamed.jpg" alt="" width="500px" className='rounded-r-3xl h-[500px] -ml-12 mt-20'/>
         </div>

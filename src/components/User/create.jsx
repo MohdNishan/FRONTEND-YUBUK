@@ -44,7 +44,7 @@ const UserProfile = () => {
     }
 
     return (
-        <div className='bg-rose-50 w-full h-screen flex'>
+        <div className='bg-rose-50 w-full h-full flex'>
         <div>
             <img src="/Images/unnamed.jpg" alt="" width="500px" className='rounded-r-3xl h-[500px] -ml-12 mt-20'/>
         </div>

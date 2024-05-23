@@ -44,7 +44,6 @@ const BusinessList = () => {
     fetchBusinesses();
   },[profile_id]);
 
-
   const handlebusiness = () => {
     navigate(`/business/create/${profile_id}`)
   }

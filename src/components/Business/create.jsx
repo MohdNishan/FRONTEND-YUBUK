@@ -37,7 +37,7 @@ const Businessprofile = () => {
         };
         fetchUserProfile();
     },[]);
- 
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -45,10 +45,12 @@ const Businessprofile = () => {
             const formData = new FormData();
             formData.append('Business_Name', Business_Name)
             formData.append('Email', Email)
+            formData.append('Website', Website)
             formData.append('Opening_hours', Opening_hours)
             formData.append('Location', Location)
             formData.append('Image', Image)
             formData.append('Contact_Number', Contact_Number)
+            formData.append('user_id', profile_id)
 
             const response = await api.post('/business',formData,
             {
@@ -78,7 +80,7 @@ const Businessprofile = () => {
     // }
 
   return (
-    <div className='bg-rose-50 w-full h-screen flex'>
+    <div className='bg-rose-50 w-full h-full flex'>
         <div>
             <img src="/Images/unnamed.jpg" alt="" width="500px" className='rounded-r-3xl h-[500px] -ml-12 mt-20'/>
         </div>

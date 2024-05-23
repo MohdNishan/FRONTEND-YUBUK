@@ -43,6 +43,12 @@ const Profileview = () => {
 
     const handleDelete = async (event) => {
         event.preventDefault()
+
+        const confirmed = window.confirm('Are you sure you want to delete this business?')
+        if (!confirmed) {
+            return;
+        }
+        
         try {
             const response = await api.delete(`/business/${business_id}`)
             if(response.status === 200){
@@ -63,7 +69,7 @@ const Profileview = () => {
 
 
   return (
-    <div className='bg-rose-50 w-full h-screen flex'>
+    <div className='bg-rose-50 w-full h-full flex'>
         <div>
             <img src="/Images/unnamed.jpg" alt="" width="500px" className='rounded-r-3xl h-[500px] -ml-12 mt-20'/>
         </div>
@@ -118,11 +124,12 @@ const Profileview = () => {
                         <tr>
                             <td>Image</td>
                             <td className='font-extrabold profile-td'>:</td>
-                            <td className='profile-td'>{businessdata?.Image}</td>
+                            <td className='profile-td'> <img src={businessdata?.Image} alt="" width="300px"/></td>
                         </tr>
                     </tbody>
                 </table>
                 <button onClick={handleEdit} className=' bg-blue-950 text-white text-sm h-8 w-32 font-semibold rounded-lg mt-5'>Edit Business</button>
+                <button onClick={handleDelete} className=' bg-blue-950 text-white text-sm h-8 w-32 font-semibold rounded-lg mt-5 ml-3'>Delete Business</button>
             </div>
         </div>
     </div>

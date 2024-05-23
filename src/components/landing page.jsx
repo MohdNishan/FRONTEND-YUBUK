@@ -18,7 +18,7 @@ const Landingpage = () => {
                 Explore the nearby <br/> bookings with <br/> YUBUK
             </h1>
             <p className='mt-5 ml-9 font-serif leading-7'>
-            Welcome to YUBUK - your gateway to a seamless booking experience across a <br/> diverse range of businesses! Explore our intuitive platform designed to streamline <br></br> your reservation process for various services and appointments.
+                Welcome to YUBUK - your gateway to a seamless booking experience across a <br/> diverse range of businesses! Explore our intuitive platform designed to streamline <br></br> your reservation process for various services and appointments.
             </p>
             <div>
             <button onClick={toLogin} className='bg-black font-serif text-white w-40 pl-5 ml-9 mt-9 h-9 rounded-full flex justify-evenly items-center'>

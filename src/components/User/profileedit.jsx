@@ -7,16 +7,18 @@ import { FaUserEdit } from "react-icons/fa";
 import { IoBusiness } from "react-icons/io5";
 import { PiSignOut } from "react-icons/pi";
 import { MdEmail } from "react-icons/md";
+import { useParams } from 'react-router-dom';
 import Profileview from '../Business/businessview';
 
 const Userprofileedit = () => {
 
     const [userdata, setuserdata] = useState({
+        id:'',
         Name: '',
         Email: '',
         Address: '',
         Date_of_Birth: ''
-    })
+    })  
     const [updatesuccess, setupdatesuccess] = useState(false);
     const [updatefail, setupdatefail] = useState(false);
     const [profileData, setProfileData] = useState();
@@ -76,6 +78,8 @@ const Userprofileedit = () => {
             formData.append('Email', userdata.Email)
             formData.append('Date_of_Birth', userdata.Date_of_Birth)
             formData.append('DP', DP)
+            formData.append('id', userdata.id)
+
 
             const response = await api.put('/user',formData,
                 {

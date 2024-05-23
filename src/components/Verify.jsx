@@ -21,7 +21,7 @@ const Verify = () => {
         } catch(error){
             console.error({message :'Error', error_message : error});
 
-        }   
+        }
     }
 
     const handlesubmit = async (verify) => {

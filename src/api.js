@@ -7,32 +7,29 @@ const api = axios.create({
 });
 
 
-
 export default api;
 
 export function injectAuthInterceptors() {
-    api.interceptors.request.use((config) => {
+  api.interceptors.request.use((config) => {
   
-      const token = localStorage.getItem("jwt_token");
+    const token = localStorage.getItem("jwt_token");
   
   
   
-      if (config?.headers && token) {
-        config.headers["token"] = token;
-      }
-      return config;
-    });
+    if (config?.headers && token) {
+      config.headers["token"] = token;
+    }
+    return config;
+  });
   
-    api.interceptors.response.use(
-      (response) => {
-        return response;
-      },
-      (error) => {
-        if (error?.response?.status === 401) {
-
-        }
+  api.interceptors.response.use(
+    (response) => {
+      return response;
+    },
+    (error) => {
+      if (error?.response?.status === 401) {}
   
-        return Promise.reject(error);
-  },
-  );
-  }
+      return Promise.reject(error);
+    },
+  )
+}
