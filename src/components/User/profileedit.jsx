@@ -207,7 +207,7 @@ const Userprofileedit = () => {
                                     type="text"
                                     name='Email'
                                     value={userdata.Email || ''}
-                                    onChange={handleChange}
+                                    onChange={handleChange} 
                                     className='border-2 border-gray-400 rounded-lg h-11 w-96 p-3 mt-4 pl-9'
                                 />
                                 <MdEmail className="absolute left-2 top-6 text-gray-400 pointer-events-none size-7" />

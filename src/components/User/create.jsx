@@ -48,7 +48,7 @@ const UserProfile = () => {
         <div>
             <img src="/Images/unnamed.jpg" alt="" width="500px" className='rounded-r-3xl h-[500px] -ml-12 mt-20'/>
         </div>
-        <div>
+        <div>YAM
             <h1 className='font-semibold text-blue-950 text-xl mt-20 ml-10'>
                 Create Your Profile
             </h1>
@@ -69,7 +69,7 @@ const UserProfile = () => {
                             />
                         </div>
                         <div className='grid ml-16'>
-                            <label className='font-semibold'>Email  </label>
+                            <label className='font-semibold'>Email </label>
                             <div className='relative'>
                                 <input
                                     type='email'
