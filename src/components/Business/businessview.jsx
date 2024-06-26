@@ -44,7 +44,7 @@ const Profileview = () => {
     const handleDelete = async (event) => {
         event.preventDefault()
 
-        const confirmed = window.confirm('Are you sure you want to delete this business?')
+        const confirmed = window.confirm('Are you sure you want to delete this business? ')
         if (!confirmed) {
             return;
         }

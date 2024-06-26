@@ -85,11 +85,11 @@ function handleAuthClick() {
       'location': 'cusat School, kochi',
       'description': 'Paty time',
       'start': {
-        'dateTime': '2024-05-21T04:04:00.000Z',
+        'dateTime': '2024-07-10T04:04:00.000Z',
         'timeZone': 'UTC'
       },
       'end': {
-        'dateTime': '2024-05-22T04:35:00.000Z',
+        'dateTime': '2024-07-11T04:35:00.000Z',
         'timeZone': 'UTC'
       },
     }
@@ -104,7 +104,7 @@ function handleAuthClick() {
   return (
     <div>
       <button id="authorize_button" hidden={googletoken && expiresIn} onClick={handleAuthClick} className='bg-purple-800 h-8 w-36 text-white rounded-md hover:bg-sky-800 mt-1'>Add to Calendar</button>
-      <button id="signout_button" hidden={!googletoken && !expiresIn}   onClick={handleAuthClick} className='bg-purple-800 h-8 w-36 text-white rounded-md hover:bg-sky-800 mt-1'>Switch Account</button>
+      <button id="signout_button" hidden={!googletoken && !expiresIn} onClick={handleAuthClick} className='bg-purple-800 h-8 w-36 text-white rounded-md hover:bg-sky-800 mt-1'>Switch Account</button>
       <button id='add_manual_event' hidden={!googletoken && !expiresIn} onClick={addManualEvent} className='bg-purple-800 h-8 w-36 text-white rounded-md hover:bg-sky-800 mt-1 ml-1'>Add Event</button>
     </div>
   )
